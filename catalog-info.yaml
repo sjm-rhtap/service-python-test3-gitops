@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: service-python-test3-gitops
+  description: This is GitOps manifest for service-python-test3   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=service-python-test3
+    backstage.io/kubernetes-id: service-python-test3 
+    backstage.io/techdocs-ref: dir:. 
+    janus-idp.io/tekton: service-python-test3
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:service-python-test3
